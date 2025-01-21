@@ -250,8 +250,29 @@ VALUES
 
 -- COMMAND ----------
 
+-- Inser sample data for sales fact table 
+INSERT INTO
+  fact_sales (transaction_id, date_id, customer_id, product_id, store_id, store_business_key, sales_amount)
+VALUES
+  (10001, 20211001, 1, 1, 10, "PER01", 50.00),
+  (10005, 20211003, 3, 2, 10, "PER01", 79.00);
+
+-- COMMAND ----------
+
+delete from fact_sales where store_id=10;
+
+-- COMMAND ----------
+
+select * from dim_store
+
+-- COMMAND ----------
+
 SELECT * 
 FROM US_Stores.Sales_DW.fact_sales
+
+-- COMMAND ----------
+
+desc  history  fact_sales
 
 -- COMMAND ----------
 
